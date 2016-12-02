@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>拖拽排序</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<script src='js/jquery-1.11.1.min.js'></script>
+	<script src='js/lz-sort-1.1.0.js'></script>
+	<style>
+
+		.test{
+
+			float: left;
+
+			margin-left: 20px;
+
+			border: 1px solid #000;
+
+		}
+
+		.box{
+
+			color: #fff;
+	
+			width:100px;
+
+			height:100px;
+
+			margin:10px;
+
+			text-align: center;
+
+			line-height: 100px;
+
+			font-size: 20px;
+
+		}
+
+		input{
+
+			display: inline-block;
+
+			margin:20px;
+		}
+
+		.parent{
+
+			float: left;
+
+			margin-left: 20px;
+
+			margin-right: 20px;
+
+			margin-bottom: 20px;
+
+		}
+
+		.parent3 .box,.parent4 .box,.parent5 .box{
+
+			float: left;
+		}
+
+		.parent3{
+
+			width:250px;
+		}
+
+		.parent4{
+			
+			width:250px;
+
+		}
+
+		.parent5{
+
+			width:600px;
+
+		}
+
+		.parent2 .box{
+
+			width: 120px;
+
+			height:120px;
+
+			line-height: 120px;
+
+		}
+
+		.test:after{
+
+			content:" ";
+
+			clear: both;
+
+		}
+
+		p{
+
+			margin:20px;
+		}
+
+	</style>
+</head>
+<body>
+
+	<div id="test1" class="test">
+		
+		<input type="button" value="start">
+		<input type="button" value="end">
+
+		<span>end sort</span>
+
+		<p>这是操作杆示例</p>
+
+		<div class="parent1 parent">
+			<div class="box" style="background-color: #000">1</div>
+			<div class="box" style="background-color: #333">2</div>
+			<div class="box" style="background-color: #666">3</div>
+			<div class="box" style="background-color: #999">4</div>
+			<div class="box" style="background-color: #ccc">5</div>
+		</div>
+
+		<div class="parent2 parent">
+			<div class="box" style="background-color: #000">1</div>
+			<div class="box" style="background-color: #333">2</div>
+			<div class="box" style="background-color: #666">3</div>
+			<div class="box" style="background-color: #999">4</div>
+			<div class="box" style="background-color: #ccc">5</div>
+		</div>
+
+	</div>
+
+	<div id="test2" class="test">
+		
+		<input type="button" value="start">
+		<input type="button" value="end">
+
+		<span>end sort</span>
+
+		<p>这是全方位移动示例</p>
+
+		<div class="parent3 parent">
+			<div class="box" style="background-color: #000">1</div>
+			<div class="box" style="background-color: #333">2</div>
+			<div class="box" style="background-color: #666">3</div>
+			<div class="box" style="background-color: #999">4</div>
+			<div class="box" style="background-color: #ccc">5</div>
+			<div class="box" style="background-color: #000">1</div>
+			<div class="box" style="background-color: #333">2</div>
+			<div class="box" style="background-color: #666">3</div>
+			<div class="box" style="background-color: #999">4</div>
+			<div class="box" style="background-color: #ccc">5</div>
+		</div>
+
+	</div>
+
+	<div id="test3" class="test">
+		
+		<input type="button" value="start">
+		<input type="button" value="end">
+
+		<span>end sort</span>
+
+		<p>这是纵向移动示例</p>
+
+		<div class="parent4 parent">
+			<div class="box" style="background-color: #000">1</div>
+			<div class="box" style="background-color: #333">2</div>
+			<div class="box" style="background-color: #666">3</div>
+			<div class="box" style="background-color: #999">4</div>
+			<div class="box" style="background-color: #ccc">5</div>
+			<div class="box" style="background-color: #000">1</div>
+			<div class="box" style="background-color: #333">2</div>
+			<div class="box" style="background-color: #666">3</div>
+			<div class="box" style="background-color: #999">4</div>
+			<div class="box" style="background-color: #ccc">5</div>
+		</div>
+
+	</div>
+
+	<div id="test4" class="test">
+		
+		<input type="button" value="start">
+		<input type="button" value="end">
+
+		<span>end sort</span>
+
+		<p>这是横向移动示例</p>
+
+		<div class="parent5 parent">
+			<div class="box" style="background-color: #000">1</div>
+			<div class="box" style="background-color: #333">2</div>
+			<div class="box" style="background-color: #666">3</div>
+			<div class="box" style="background-color: #999">4</div>
+			<div class="box" style="background-color: #ccc">5</div>
+			<div class="box" style="background-color: #000">1</div>
+			<div class="box" style="background-color: #333">2</div>
+			<div class="box" style="background-color: #666">3</div>
+			<div class="box" style="background-color: #999">4</div>
+			<div class="box" style="background-color: #ccc">5</div>
+		</div>
+
+	</div>
+
+	<div id="test5" class="test">
+		
+		<input type="button" value="start">
+		<input type="button" value="end">
+
+		<span>end sort</span>
+
+		<p>这是设置透明度的示例</p>
+
+		<div class="parent6 parent">
+			<div class="box" style="background-color: #000">1</div>
+			<div class="box" style="background-color: #333">2</div>
+			<div class="box" style="background-color: #666">3</div>
+			<div class="box" style="background-color: #999">4</div>
+			<div class="box" style="background-color: #ccc">5</div>
+		</div>
+
+	</div>
+
+	<div id="test6" class="test">
+		
+		<input type="button" value="start">
+		<input type="button" value="end">
+
+		<span>end sort</span>
+
+		<p>这是可滑轮滚动操作的示例</p>
+
+		<div class="parent7 parent">
+			<div class="box" style="background-color: #000">1</div>
+			<div class="box" style="background-color: #333">2</div>
+			<div class="box" style="background-color: #666">3</div>
+			<div class="box" style="background-color: #999">4</div>
+			<div class="box" style="background-color: #ccc">5</div>
+		</div>
+
+	</div>
+	
+
+	<script>
+
+		$(".parent1").lzsort(['.parent2']);
+
+		$(".parent3").lzsort();
+
+		$(".parent4").lzsort({axis:"y"})
+
+		$(".parent5").lzsort({axis:'x'})
+
+		$('.parent6').lzsort({opacity:0.2})
+
+		$(".parent7").lzsort({wheel:true});
+
+		$(".test").each(function(index, el) {
+			
+			$(el).find("input").eq(0).on('click', function(event) {
+
+				event.preventDefault();
+
+				$(this).nextAll('span').eq(0).html("start sort")
+				
+				$(this).nextAll('.parent').eq(0).lzsortTool().start();
+
+			});
+
+			$(el).find("input").eq(1).on('click', function(event) {
+
+				event.preventDefault();
+
+				$(this).nextAll('span').eq(0).html("end sort")
+				
+				$(this).nextAll('.parent').eq(0).lzsortTool().end();
+			});
+
+		});	
+
+		/* ------- 调用 ------ */ 
+
+		// 可操作对象的父级调用此插件 
+
+		/* ------- 参数 ------ */ 
+
+		// 所有参数可缺省，
+
+		// 以一个参数：可操作对象的选择器（可缺省）
+
+		// 第二个参数（必须是数组，数组第二个的对象可缺省）：[ 响应对象的父级的选择器，响应对象的选择器 ]
+
+	</script> 
+</html>
